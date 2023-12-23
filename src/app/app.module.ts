@@ -9,6 +9,8 @@ import { DeckCreateComponent } from './pages/deck-create/deck-create.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { CardComponent } from './components/shared/card/card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DeckDetailComponent,
     DeckCreateComponent,
     HeaderComponent,
-    CardComponent
+    CardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
