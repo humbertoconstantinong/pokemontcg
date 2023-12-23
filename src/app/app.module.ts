@@ -7,6 +7,8 @@ import { DeckComponent } from './components/shared/deck/deck.component';
 import { DeckDetailComponent } from './pages/deck-detail/deck-detail.component';
 import { DeckCreateComponent } from './pages/deck-create/deck-create.component';
 import { HeaderComponent } from './components/shared/header/header.component';
+import { CardComponent } from './components/shared/card/card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { HeaderComponent } from './components/shared/header/header.component';
     DeckComponent,
     DeckDetailComponent,
     DeckCreateComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
