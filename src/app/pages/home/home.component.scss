@@ -24,7 +24,16 @@ body {
     height: 230px;
     width: 600px;
     position: relative;
+
+
+    display: flex;
+    align-items: flex-end;
 }
+ 
+img{
+  height: 15rem;
+}
+
 
 .btns{
   position: absolute;
@@ -34,4 +43,16 @@ body {
   button{
     margin: 1rem;
   }
+}
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+p{
+  color: yellow;
+  font-size: 40px;
+  font-family: 'Pokemon Solid', sans-serif;   
+                                              
+}
+h1{
+  color: orange;
+  font-size: 55px;
+  font-family: 'Pokemon Solid', sans-serif;                                               
 }
