@@ -23,8 +23,15 @@ body {
 .menu{
     height: 230px;
     width: 600px;
+    position: relative;
 }
-.my-decks .my-decks{
-    height: 100%;
-    width: 100%;
+
+.btns{
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
+
+  button{
+    margin: 1rem;
+  }
 }
