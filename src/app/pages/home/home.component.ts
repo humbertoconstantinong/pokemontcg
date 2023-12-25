@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DeckCreateComponent } from '../deck-create/deck-create.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +9,12 @@ import { DeckCreateComponent } from '../deck-create/deck-create.component';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(public dialog: MatDialog){
+  constructor(public dialog: MatDialog,private router: Router){
 
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DeckCreateComponent);
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    this.router.navigate(['/create']);
   }
 
 }
