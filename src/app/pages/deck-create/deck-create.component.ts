@@ -49,7 +49,7 @@ export class DeckCreateComponent implements OnInit {
 
   addCard(card: any){
     const dialogRef = this.dialog.open(CardComponent, {
-      data: {img: card.images?.small}
+      data: {img: card.images?.small},
     }) 
     dialogRef.afterClosed().subscribe(result => {
       if(result === "add"){
