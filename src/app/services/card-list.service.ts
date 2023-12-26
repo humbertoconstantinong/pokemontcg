@@ -21,6 +21,10 @@ export class CardListService {
     return this.http.get<any>(`https://api.pokemontcg.io/v2/cards?page=${page}`);
   }
 
+  getDecks(): Observable<any>{
+    return this.http.get<any>('http://localhost:3000/decks');
+  }
+
   // POST
   createDeck(deck: any): Observable<any>{
     return this.http.post<any>('http://localhost:3000/decks', deck);
