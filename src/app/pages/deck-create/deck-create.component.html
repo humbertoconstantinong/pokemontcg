@@ -31,7 +31,7 @@
         
         </table>
       </div>
-      <div   style="height: 350px; position: fixed; right: 50px;" class="info-deck bg-white p-8 shadow-md rounded-md">
+      <div style="height: 350px; position: fixed; right: 50px;" class="info-deck bg-white p-8 shadow-md rounded-md">
         <mat-form-field>
           <mat-label>Nome do Deck</mat-label>
           <input  [(ngModel)]="nameDeck"  matInput placeholder="Nome do Deck" #input>
@@ -40,16 +40,16 @@
           <mat-label>Filtrar  Carta</mat-label>
           <input  matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
         </mat-form-field> 
-        <h3>Cartas Adicionadas: {{contadorCards}}</h3>
-        <div class="btns flex items-center justify-around">
-          <button (click)="onBeforePage()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+        <h3 class="text-center">Cartas Adicionadas: {{contadorCards}}</h3>
+        <div class="flex w-full justify-around">
+          <button (click)="onBeforePage()" mat-mini-fab color="primary">
             <mat-icon>navigate_before</mat-icon>
           </button>
-          <button (click)="onNextPage()" class="ml-3" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+          <button class="mt-14" (click)="createDeck()" style="background-color: #004a94; color: white;" mat-raised-button>Salvar Deck <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon></button>
+          <button (click)="onNextPage()" class="ml-3" mat-mini-fab color="primary">
             <mat-icon>navigate_next</mat-icon>
           </button> <br>
         </div>
-        <button class="mt-4" (click)="createDeck()" style="background-color: #004a94; color: white;" mat-raised-button>Salvar Deck <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon></button>
     </div>
       
     </div>
