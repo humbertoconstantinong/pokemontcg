@@ -1,4 +1,4 @@
-.table-container {
+.scroll {
     max-height: 60%; 
     overflow-y: auto; 
     margin-bottom: 20px;
@@ -6,6 +6,7 @@
   
 .card{
     height: 260px;
+    margin-bottom: 3rem;
 }
 #video-background {
     position: fixed;
@@ -19,3 +20,4 @@
 .mat-table {
     background-color: transparent;
   }
+

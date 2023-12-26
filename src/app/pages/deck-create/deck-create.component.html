@@ -5,8 +5,8 @@
 <div class="flex items-center justify-center">
   <mat-spinner *ngIf="spinner"></mat-spinner> -->
   <div class="flex items-center justify-center  ">
-    <div class="flex space-x-4 justify-center p-8  menu">
-      <div class="table-container">
+    <div class="flex space-x-4 justify-center p-8">
+      <div class="scroll">
         <table  *ngIf="!spinner" mat-table [dataSource]="dataSource" class="mat-elevation-z8 mat-table">
         
           <!-- Position Column -->
@@ -35,12 +35,17 @@
         
         </table>
       </div>
-      <div class="info-deck bg-white p-8 shadow-md rounded-md">
+      <div  *ngIf="!spinner" style="height: 300px;" class="info-deck bg-white p-8 shadow-md rounded-md">
+        <mat-form-field>
+          <mat-label>Nome do Deck</mat-label>
+          <input  matInput placeholder="Nome do Deck" #input>
+        </mat-form-field><br>
         <mat-form-field>
           <mat-label>Filtrar  Carta</mat-label>
           <input  matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
-        </mat-form-field>
-        Cartas Adicionadas: {{contadorCards}}
+        </mat-form-field> 
+        <h3>Cartas Adicionadas: {{contadorCards}}</h3>
+        <button style="background-color: #004a94; color: white;" mat-raised-button>Salvar Deck <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon></button>
     </div>
       
     </div>
