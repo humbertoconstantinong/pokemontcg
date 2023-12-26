@@ -15,12 +15,14 @@ export class DeckCreateComponent implements OnInit {
   constructor(private cardService: CardListService){}
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+
   spinner = true;
-  displayedColumns: string[] = ['position', 'position2','position4', 'position5'];
+  displayedColumns: string[] = ['position'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   Decks: Array<Deck> = [];
   Cards: Array<any> = [];
   contadorCards = 0;
+
   ngOnInit(): void{
     this.cardService.getAll().subscribe((res)=>{
       console.log(res)
@@ -43,7 +45,9 @@ export class DeckCreateComponent implements OnInit {
   }
   
   createDeck(cards: any){
-    this.Decks.push(cards);
+    if(this.Cards.length >= 24 && this.Cards.length <= 60){
+      this.Decks.push(cards);
+    }
   }
 
   onPageChange(event: any) {

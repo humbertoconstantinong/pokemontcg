@@ -15,20 +15,7 @@
             <td (click)="addCard(element)" mat-cell *matCellDef="let element"> <img class="card" [src]="element.images?.small" alt=""> </td>
           </ng-container>
         
-          <ng-container  matColumnDef="position2">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td (click)="addCard(element)" mat-cell *matCellDef="let element"> <img class="card" [src]="element.images?.small" alt=""> </td>
-          </ng-container>
         
-          <ng-container  matColumnDef="position4">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td (click)="addCard(element)" mat-cell *matCellDef="let element"> <img class="card" [src]="element.images?.small" alt=""> </td>
-          </ng-container>
-        
-          <ng-container  matColumnDef="position5">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td (click)="addCard(element)" mat-cell *matCellDef="let element"> <img class="card" [src]="element.images?.small" alt=""> </td>
-          </ng-container>
         
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
