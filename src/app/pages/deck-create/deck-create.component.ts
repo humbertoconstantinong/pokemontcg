@@ -56,8 +56,8 @@ export class DeckCreateComponent implements OnInit {
         const cardWithSameName = this.Cards.filter(
           (c) => c.name === card.name 
         ); 
-        //Comparando com 6 porque o length esta pulando de 2 em 2.
-        if (cardWithSameName.length <= 4) {
+        //Comparando com a lista de Cards, para validar e não permitir passar de 4 cards com o mesmo nome.
+        if (cardWithSameName.length <= 3) {
           console.log(`length ${cardWithSameName.length}`)
           this.Cards.push(card);
           this.contadorCards = this.contadorCards + 1;

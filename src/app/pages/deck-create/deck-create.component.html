@@ -4,7 +4,7 @@
   <div class="flex items-center justify-center  ">
     <div class="flex space-x-4 justify-center p-8">
       <div class="scroll">
-        <h1 *ngIf="spinner">Carregando cartas</h1>
+        <span class="font-extrabold text-3xl" *ngIf="spinner">Carregando cartas</span>
         <table  *ngIf="!spinner" mat-table [dataSource]="dataSource" class="mat-elevation-z8 mat-table">
         
           <ng-container  matColumnDef="position">
@@ -42,12 +42,12 @@
         </mat-form-field> 
         <h3 class="text-center">Cartas Adicionadas: {{contadorCards}}</h3>
         <div class="flex w-full justify-around">
-          <button (click)="onBeforePage()" mat-mini-fab color="primary">
+          <button (click)="onBeforePage()" mat-mini-fab style="background-color: #004a94; color: white;">
             <mat-icon>navigate_before</mat-icon>
           </button>
           <button class="mt-14" (click)="createDeck()" style="background-color: #004a94; color: white;" mat-raised-button>Salvar Deck <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon></button>
           <span style=" position: fixed; right: 185px;" class="text-center mt-2">{{contadorPage}}/68</span> <br>
-          <button (click)="onNextPage()" class="ml-3" mat-mini-fab color="primary">
+          <button (click)="onNextPage()" class="ml-3" mat-mini-fab style="background-color: #004a94; color: white;">
             <mat-icon>navigate_next</mat-icon>
           </button>
         </div>

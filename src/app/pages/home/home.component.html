@@ -1,5 +1,5 @@
 
-<video id="video-background" autoplay muted loop playsinline>
+<video id="video-background">
     <source src="../../../assets/pfhd.mp4" type="video/mp4">
 </video>
 <div class="flex items-center justify-center h-screen ">
@@ -8,8 +8,8 @@
             <img src="../../../assets/title.png" alt="">
         </div>
         <div class="btns">
-            <button mat-raised-button>Meus Decks <mat-icon aria-hidden="false" fontIcon="view_carousel"></mat-icon></button>
-            <button (click)="openDialog()" mat-raised-button>Criar Deck <mat-icon aria-hidden="false" fontIcon="add"></mat-icon></button>
+            <button (click)="openMyDecks()" mat-raised-button>Meus Decks <mat-icon aria-hidden="false" fontIcon="view_carousel"></mat-icon></button>
+            <button (click)="openNew()" mat-raised-button>Criar Deck <mat-icon aria-hidden="false" fontIcon="add"></mat-icon></button>
         </div>
     </div>
   </div>

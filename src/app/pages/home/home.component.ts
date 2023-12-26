@@ -13,7 +13,11 @@ export class HomeComponent {
 
   }
 
-  openDialog() {
+  openMyDecks(){
+    this.router.navigate(['/decks']);
+  }
+
+  openNew() {
     this.router.navigate(['/create']);
   }
 
