@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Route, Router } from '@angular/router';
 import { Deck } from 'src/app/models/deck';
 import { CardListService } from 'src/app/services/card-list.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-deck-create',
@@ -12,14 +14,14 @@ import { CardListService } from 'src/app/services/card-list.service';
 
 export class DeckCreateComponent implements OnInit {
 
-  constructor(private cardService: CardListService){}
+  constructor(private cardService: CardListService,private router: Router){}
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
   spinner = true;
   displayedColumns: string[] = ['position'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
-  Decks: Array<Deck> = [];
+  Decks: Array<any> = [];
   Cards: Array<any> = [];
   contadorCards = 0;
 
@@ -44,9 +46,18 @@ export class DeckCreateComponent implements OnInit {
     console.log(this.contadorCards)
   }
   
-  createDeck(cards: any){
+  createDeck(){
     if(this.Cards.length >= 24 && this.Cards.length <= 60){
-      this.Decks.push(cards);
+      this.Decks.push(this.Cards);
+      Swal.fire({
+        icon: "success",
+        title: "Deck criado com sucesso!",
+        showConfirmButton: true,
+      }).then((result)=>{
+        if(result.isConfirmed){
+          this.router.navigate(['']);
+        }
+      });
     }
   }
 

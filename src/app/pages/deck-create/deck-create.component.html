@@ -32,7 +32,7 @@
           <input  matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
         </mat-form-field> 
         <h3>Cartas Adicionadas: {{contadorCards}}</h3>
-        <button style="background-color: #004a94; color: white;" mat-raised-button>Salvar Deck <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon></button>
+        <button (click)="createDeck()" style="background-color: #004a94; color: white;" mat-raised-button>Salvar Deck <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon></button>
     </div>
       
     </div>
