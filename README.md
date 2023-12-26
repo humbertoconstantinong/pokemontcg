@@ -25,3 +25,6 @@ Ao acessar a página inicial ``localhost:4200/`` você vai se deparar com a segu
 5 - Não é possível adicionar mais de 4 cartas com o mesmo nome, seguindo as regras do jogo.
 
 **Sei que as cartas estão quadruplicadas, deixei assim propositalmente, pois a [API Oficial](https://docs.pokemontcg.io/) do Pokémon, não trás os dados separados por colunas. e sim uma única coluna com todos os dados. tentei por muito tempo corrigir pelo frontend, mas não foi possível por questão de tempo. E se eu deixasse somente uma coluna da tabela, a experiência do usuário não iria ficar tão agradável, peço desculpas desde já. Em breve corrigirei.
+![Alerta de deck criado](https://i.imgur.com/hgE9JjK.png)
+Depois que escolher as melhores cartas e clicar em salvar deck, o alerta confirmando a criação será exibido, e te levará para a página onde estão todos os seus decks.
+![Seus decks](https://i.imgur.com/3re0M84.png)
