@@ -1,20 +1,17 @@
 <video id="video-background" autoplay muted loop playsinline>
   <source src="../../../assets/pfhd.mp4" type="video/mp4">
 </video>
-<!-- 
-<div class="flex items-center justify-center">
-  <mat-spinner *ngIf="spinner"></mat-spinner> -->
   <div class="flex items-center justify-center  ">
     <div class="flex space-x-4 justify-center p-8">
       <div class="scroll">
+        <h1 *ngIf="spinner">Carregando cartas</h1>
         <table  *ngIf="!spinner" mat-table [dataSource]="dataSource" class="mat-elevation-z8 mat-table">
         
-          <!-- Position Column -->
           <ng-container  matColumnDef="position">
             <th mat-header-cell *matHeaderCellDef></th>
             <td (click)="addCard(element)" mat-cell *matCellDef="let element"> <img class="card" [src]="element.images?.small" alt=""> </td>
           </ng-container>
-        
+          
         
         
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -22,7 +19,7 @@
         
         </table>
       </div>
-      <div  *ngIf="!spinner" style="height: 300px;" class="info-deck bg-white p-8 shadow-md rounded-md">
+      <div  *ngIf="!spinner" style="height: 350px;" class="info-deck bg-white p-8 shadow-md rounded-md">
         <mat-form-field>
           <mat-label>Nome do Deck</mat-label>
           <input  matInput placeholder="Nome do Deck" #input>
@@ -32,7 +29,15 @@
           <input  matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
         </mat-form-field> 
         <h3>Cartas Adicionadas: {{contadorCards}}</h3>
-        <button (click)="createDeck()" style="background-color: #004a94; color: white;" mat-raised-button>Salvar Deck <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon></button>
+        <div class="btns flex items-center justify-around">
+          <button (click)="onBeforePage()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon>navigate_before</mat-icon>
+          </button>
+          <button (click)="onNextPage()" class="ml-3" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+            <mat-icon>navigate_next</mat-icon>
+          </button> <br>
+        </div>
+        <button class="mt-4" (click)="createDeck()" style="background-color: #004a94; color: white;" mat-raised-button>Salvar Deck <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon></button>
     </div>
       
     </div>

@@ -1,1 +1,13 @@
-<p>card works!</p>
+<div class="flex-row items-center justify-center bg-transparent">
+    <img class="card" [src]="data.img" alt="">
+    
+    <div class="btns p-2 flex items-center justify-around bg-transparent">
+        <button (click)="addCard()" style="color: white; background-color:green;" mat-fab  aria-label="Example icon button with a bookmark icon">
+            <mat-icon>add</mat-icon>
+        </button> 
+        <button mat-fab mat-dialog-close="" style="background-color: red; color: white;" aria-label="Example icon button with a bookmark icon">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</div>
+
