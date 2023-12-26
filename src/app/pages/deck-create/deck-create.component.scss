@@ -1,4 +1,10 @@
-table{
-    height: 80%;
-    width: 80%;
+.table-container {
+    max-height: 60%; 
+    overflow-y: auto; 
+    margin-bottom: 20px;
+    background-color: #004a94;
+  }
+  
+.card{
+    height: 260px;
 }

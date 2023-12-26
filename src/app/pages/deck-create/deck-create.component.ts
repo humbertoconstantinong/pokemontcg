@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Deck } from 'src/app/models/deck';
 import { CardListService } from 'src/app/services/card-list.service';
 
 @Component({
@@ -9,20 +11,44 @@ import { CardListService } from 'src/app/services/card-list.service';
 })
 
 export class DeckCreateComponent implements OnInit {
+
   constructor(private cardService: CardListService){}
 
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  spinner = true;
+  displayedColumns: string[] = ['position','symbol'];
+  dataSource = new MatTableDataSource(ELEMENT_DATA);
+  Decks: Array<Deck> = [];
+  Cards: Array<any> = [];
+  contadorCards = 0;
   ngOnInit(): void{
-    this.cardService.getCardByName().subscribe((res)=>{
+    this.cardService.getAll().subscribe((res)=>{
       console.log(res)
+      this.spinner = false;
+      this.dataSource = new MatTableDataSource(res.data);
     })
   }
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  addCard(card: any){
+    this.Cards.push(card);
+    this.contadorCards = this.contadorCards++;
+  }
+  
+  createDeck(cards: any){
+    this.Decks.push(cards);
+  }
+  onPageChange(event: any) {
+    let page = event.pageIndex + 1
+    this.cardService.getCardByPage(page).subscribe((res)=>{
+      this.spinner = false;
+      this.dataSource = new MatTableDataSource(res.data);
+    })
   }
 }
 
@@ -33,15 +59,15 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+const ELEMENT_DATA: any[] = [
+  {position: 1, symbol: ''},
+  {position: 2,  symbol: ''},
+  {position: 3,  symbol: ''},
+  {position: 4,  symbol: ''},
+  {position: 5,  symbol: ''},
+  {position: 6,  symbol: ''},
+  {position: 7,  symbol: ''},
+  {position: 8, symbol: ''},
+  {position: 9,  symbol: ''},
+  {position: 10, symbol: ''},
 ];

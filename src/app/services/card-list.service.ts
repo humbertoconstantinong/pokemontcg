@@ -15,5 +15,8 @@ export class CardListService {
   getCardByName(): Observable<any>{
     return this.http.get<any>('https://api.pokemontcg.io/v2/cards?q=name:charizard');
   }
+  getCardByPage(page: any): Observable<any>{
+    return this.http.get<any>(`https://api.pokemontcg.io/v2/cards?page=${page}`);
+  }
 
 }
