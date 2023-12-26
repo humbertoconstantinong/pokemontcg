@@ -21,6 +21,7 @@ export class DeckCreateComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
 
+  nameDeck = '';
   spinner = true;
   displayedColumns: string[] = ['position',];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -48,10 +49,23 @@ export class DeckCreateComponent implements OnInit {
     }) 
     dialogRef.afterClosed().subscribe(result => {
       if(result === "add"){
-        console.warn(card)
-        this.Cards.push(card);
-        this.contadorCards = this.contadorCards + 1;
-        console.log(this.contadorCards)
+        const cardWithSameName = this.Cards.filter(
+          (c) => c.name === card.name 
+        ); 
+        //Comparando com 6 porque o length esta pulando de 2 em 2.
+        if (cardWithSameName.length <= 4) {
+          console.log(`length ${cardWithSameName.length}`)
+          this.Cards.push(card);
+          this.contadorCards = this.contadorCards + 1;
+          console.log(this.contadorCards)
+        } else{
+          Swal.fire({
+            icon: "error",
+            title: "Você já atingiu o limite de 4 cartas com o mesmo nome neste deck!",
+            timer: 1500,
+            showConfirmButton: false,
+          })
+        }
       }
     })
     
@@ -60,10 +74,13 @@ export class DeckCreateComponent implements OnInit {
   createDeck(){
     if(this.Cards.length >= 24 && this.Cards.length <= 60){
       let handlerDeck: Deck = {
-        name: '',
+        name: this.nameDeck,
         cards: this.Cards
       }
-      this.globalContext.Decks.push(handlerDeck);
+      // this.globalContext.Decks.push(handlerDeck); CRIANDO EM VARIÁVEL LOCAL
+
+      this.cardService.createDeck(handlerDeck).subscribe(); // Criando na API FAKE
+      console.log(`DECK CRIADO -> ${this.globalContext.Decks}`)
       Swal.fire({
         icon: "success",
         title: "Deck criado com sucesso!",

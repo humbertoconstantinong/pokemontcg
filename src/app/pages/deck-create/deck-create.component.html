@@ -22,7 +22,7 @@
       <div  *ngIf="!spinner" style="height: 350px;" class="info-deck bg-white p-8 shadow-md rounded-md">
         <mat-form-field>
           <mat-label>Nome do Deck</mat-label>
-          <input  matInput placeholder="Nome do Deck" #input>
+          <input  [(ngModel)]="nameDeck"  matInput placeholder="Nome do Deck" #input>
         </mat-form-field><br>
         <mat-form-field>
           <mat-label>Filtrar  Carta</mat-label>

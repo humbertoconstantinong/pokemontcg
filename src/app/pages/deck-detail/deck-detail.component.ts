@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Deck } from 'src/app/models/deck';
 import { GlobalContextService } from 'src/app/services/global-context.service';
 
@@ -8,12 +9,16 @@ import { GlobalContextService } from 'src/app/services/global-context.service';
   styleUrls: ['./deck-detail.component.scss']
 })
 export class DeckDetailComponent {
-  constructor(private globalContext: GlobalContextService){}
+  constructor(public globalContext: GlobalContextService, private router: Router){}
   decks: any = [];
+  contador = 0;
   
   ngOnInit(){
-    this.decks.push(this.globalContext.Decks);
-    console.log(this.decks);
+    
+    console.warn(this.globalContext.returnDecks())
+  }
+  createNew(){
+    this.router.navigate(['/create']);
   }
 
 }

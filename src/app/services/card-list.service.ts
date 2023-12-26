@@ -9,6 +9,8 @@ export class CardListService {
 
   constructor(private http: HttpClient) { }
 
+
+  // GET
   getAll(): Observable<any>{
     return this.http.get<any>('https://api.pokemontcg.io/v2/cards');
   }
@@ -17,6 +19,11 @@ export class CardListService {
   }
   getCardByPage(page: any): Observable<any>{
     return this.http.get<any>(`https://api.pokemontcg.io/v2/cards?page=${page}`);
+  }
+
+  // POST
+  createDeck(deck: any): Observable<any>{
+    return this.http.post<any>('http://localhost:3000/decks', deck);
   }
 
 }
