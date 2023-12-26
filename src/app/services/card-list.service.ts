@@ -8,31 +8,32 @@ import { Observable } from 'rxjs';
 export class CardListService {
 
   constructor(private http: HttpClient) { }
-
+  urlFake = "http://localhost:3000/decks";
+  urlApiOfficial = "https://api.pokemontcg.io/v2/";
 
   // GET
   getAll(): Observable<any>{
-    return this.http.get<any>('https://api.pokemontcg.io/v2/cards');
+    return this.http.get<any>(`${this.urlApiOfficial}cards`);
   }
   getCardByName(): Observable<any>{
     return this.http.get<any>('https://api.pokemontcg.io/v2/cards?q=name:charizard');
   }
   getCardByPage(page: any): Observable<any>{
-    return this.http.get<any>(`https://api.pokemontcg.io/v2/cards?page=${page}`);
+    return this.http.get<any>(`${this.urlApiOfficial}cards?page=${page}`);
   }
 
   getDecks(): Observable<any>{
-    return this.http.get<any>('http://localhost:3000/decks');
+    return this.http.get<any>(`${this.urlFake}`);
   }
 
   // POST
   createDeck(deck: any): Observable<any>{
-    return this.http.post<any>('http://localhost:3000/decks', deck);
+    return this.http.post<any>(`${this.urlFake}`, deck);
   }
 
   // DELETE
   deleteDeck(id: any): Observable<any>{
-    return this.http.delete<any>(`http://localhost:3000/decks/${id}`);
+    return this.http.delete<any>(`${this.urlFake}/${id}`);
   }
 
 }
