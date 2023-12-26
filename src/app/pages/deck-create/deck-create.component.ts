@@ -16,7 +16,7 @@ export class DeckCreateComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   spinner = true;
-  displayedColumns: string[] = ['position','symbol'];
+  displayedColumns: string[] = ['position', 'position2','position4', 'position5'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   Decks: Array<Deck> = [];
   Cards: Array<any> = [];
@@ -36,13 +36,16 @@ export class DeckCreateComponent implements OnInit {
   }
 
   addCard(card: any){
+    console.warn(card)
     this.Cards.push(card);
-    this.contadorCards = this.contadorCards++;
+    this.contadorCards = this.contadorCards + 1;
+    console.log(this.contadorCards)
   }
   
   createDeck(cards: any){
     this.Decks.push(cards);
   }
+
   onPageChange(event: any) {
     let page = event.pageIndex + 1
     this.cardService.getCardByPage(page).subscribe((res)=>{
