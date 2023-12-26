@@ -23,7 +23,7 @@ export class DeckCreateComponent implements OnInit {
 
   nameDeck = '';
   spinner = true;
-  displayedColumns: string[] = ['position',];
+  displayedColumns: string[] = ['position','position2','position3','position4'];
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   Decks: Array<Deck> = [];
   Cards: Array<any> = [];
@@ -41,6 +41,10 @@ export class DeckCreateComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  validateDeckName(){
+    return (this.nameDeck != "");
   }
 
   addCard(card: any){
@@ -72,23 +76,27 @@ export class DeckCreateComponent implements OnInit {
   }
   
   createDeck(){
-    if(this.Cards.length >= 24 && this.Cards.length <= 60){
-      let handlerDeck: Deck = {
-        name: this.nameDeck,
-        cards: this.Cards
-      }
-      // this.globalContext.Decks.push(handlerDeck); CRIANDO EM VARIÁVEL LOCAL
-
-      this.cardService.createDeck(handlerDeck).subscribe(); // Criando na API FAKE
-      console.log(`DECK CRIADO -> ${this.globalContext.Decks}`)
-      Swal.fire({
-        icon: "success",
-        title: "Deck criado com sucesso!",
-        showConfirmButton: true,
-      }).then((result)=>{
-        if(result.isConfirmed){
-          this.router.navigate(['decks']);
+    if((this.Cards.length >= 24 && this.Cards.length <= 60) && this.validateDeckName()){
+        let handlerDeck: Deck = {
+          name: this.nameDeck,
+          cards: this.Cards
         }
+        // this.globalContext.Decks.push(handlerDeck); CRIANDO EM VARIÁVEL LOCAL
+        this.cardService.createDeck(handlerDeck).subscribe(); // Criando na API FAKE
+        console.log(`DECK CRIADO -> ${this.globalContext.Decks}`)
+        Swal.fire({
+          icon: "success",
+          title: "Deck criado com sucesso!",
+          showConfirmButton: true,
+        }).then((result)=>{
+          if(result.isConfirmed){
+            this.router.navigate(['decks']);
+          }
+        });
+    }else{
+      Swal.fire({
+        icon: "error",
+        title: "O Deck deve ter um nome e ter entre 24 e 60 cartas!",
       });
     }
   }
