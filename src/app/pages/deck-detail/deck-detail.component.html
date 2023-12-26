@@ -2,5 +2,7 @@
 <video id="video-background">
     <source src="../../../assets/pfhd.mp4" type="video/mp4">
 </video>
+<button (click)="goHome()" class="m-4" style="background-color: #fcea69; color: black;" mat-raised-button>Voltar ao menu principal</button>
+<app-one-deck *ngFor="let deck of decks" [deck]="deck" [cards]="deck.cards" [nameDeck]="deck.name"></app-one-deck>
 
 

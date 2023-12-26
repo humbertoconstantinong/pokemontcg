@@ -30,4 +30,9 @@ export class CardListService {
     return this.http.post<any>('http://localhost:3000/decks', deck);
   }
 
+  // DELETE
+  deleteDeck(id: any): Observable<any>{
+    return this.http.delete<any>(`http://localhost:3000/decks/${id}`);
+  }
+
 }

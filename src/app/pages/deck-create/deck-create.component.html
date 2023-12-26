@@ -1,10 +1,11 @@
 <video id="video-background" autoplay muted loop playsinline>
   <source src="../../../assets/pfhd.mp4" type="video/mp4">
 </video>
+<button (click)="goHome()" class="m-4" style="background-color: #fcea69; color: black;" mat-raised-button>Voltar ao menu principal</button>
   <div class="flex items-center justify-center  ">
     <div class="flex space-x-4 justify-center p-8">
       <div class="scroll">
-        <span class="font-extrabold text-3xl" *ngIf="spinner">Carregando cartas</span>
+        <span class="font-extrabold text-3xl" style="color: #ffcb08;" *ngIf="spinner">Carregando cartas</span>
         <table  *ngIf="!spinner" mat-table [dataSource]="dataSource" class="mat-elevation-z8 mat-table">
         
           <ng-container  matColumnDef="position">
@@ -31,7 +32,7 @@
         
         </table>
       </div>
-      <div style="height: 350px; position: fixed; right: 50px;" class="info-deck bg-white p-8 shadow-md rounded-md">
+      <div  *ngIf="!spinner" style="height: 350px; position: fixed; right: 50px;" class="info-deck bg-white p-8 shadow-md rounded-md">
         <mat-form-field>
           <mat-label>Nome do Deck</mat-label>
           <input  [(ngModel)]="nameDeck"  matInput placeholder="Nome do Deck" #input>

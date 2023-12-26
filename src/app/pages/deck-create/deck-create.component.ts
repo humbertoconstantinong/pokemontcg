@@ -88,6 +88,7 @@ export class DeckCreateComponent implements OnInit {
           icon: "success",
           title: "Deck criado com sucesso!",
           showConfirmButton: true,
+          confirmButtonColor: '#004a94'
         }).then((result)=>{
           if(result.isConfirmed){
             this.router.navigate(['decks']);
@@ -99,6 +100,10 @@ export class DeckCreateComponent implements OnInit {
         title: "O Deck deve ter um nome e ter entre 24 e 60 cartas!",
       });
     }
+  }
+
+  goHome(){
+    this.router.navigate(['']);
   }
 
   onNextPage() {

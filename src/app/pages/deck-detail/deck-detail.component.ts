@@ -22,6 +22,11 @@ export class DeckDetailComponent {
       }
     })
   }
+
+  goHome(){
+    this.router.navigate(['']);
+  }
+
   createNew(){
     this.router.navigate(['/create']);
   }

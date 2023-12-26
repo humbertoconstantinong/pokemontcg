@@ -21,6 +21,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { OneDeckComponent } from './components/shared/one-deck/one-deck.component';
+import {MatCardModule} from '@angular/material/card';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     DeckCreateComponent,
     HeaderComponent,
     CardComponent,
-    HomeComponent
+    HomeComponent,
+    OneDeckComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

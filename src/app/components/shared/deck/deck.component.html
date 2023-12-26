@@ -1,1 +1,8 @@
-<p>deck works!</p>
+<div class="flex flex-wrap -mx-4 container ">
+    <div *ngFor="let item of data.deck.cards" class="w-full md:w-1/2 lg:w-1/4 px-4 mb-4">
+      <img [src]="item.images.small" class="w-full h-auto">
+    </div>
+        <h2>Cartas Pokémons -> {{pokemons }} </h2> <br>
+        <h2> Cartas Treinador -> {{coach}}</h2>
+    <button (click)="deleteDeck()" class="mt-10" mat-flat-button color="warn">Apagar Deck</button>
+  </div>
