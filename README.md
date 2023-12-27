@@ -18,13 +18,13 @@ Nossa API-FAKE estará ligada e  rodando na porta 3000.
 
 Ao acessar a página inicial ``localhost:4200/`` você vai se deparar com a seguinte tela:![Tela Inicial](https://i.imgur.com/PtUTDFd.png)
 1- Ao clicar em "Criar Deck", o sistema vai carregar uma nova página e também 250 cards do Jogo, aguarde alguns segundos.
-![Escolher cartas](https://i.imgur.com/V8qHXv5.png)
+![Escolher cartas](https://i.imgur.com/hUsqgee.png)
 2 - Escolha as suas cartas para montar o seu deck, será necessário no mínimo 24 cartas e no máximo 60 para conseguir salvar, não esqueça de dá um nome ao deck.
 3 - Navegue entre as setas para paginar as cartas, e sugir mais 250 cartas novas.
-4 - Se necessário, utilize o filtro para pesquisar o nome de alguma carta.
+4 - Se necessário, utilize o filtro para pesquisar o nome de alguma carta (PRESSIONE ENTER PARA EFETUAR A PESQUISA).
 5 - Não é possível adicionar mais de 4 cartas com o mesmo nome, seguindo as regras do jogo.
 
-**Sei que as cartas estão quadruplicadas, deixei assim propositalmente, pois a [API Oficial](https://docs.pokemontcg.io/) do Pokémon, não trás os dados separados por colunas. e sim uma única coluna com todos os dados. tentei por muito tempo corrigir pelo frontend, mas não foi possível por questão de tempo. E se eu deixasse somente uma coluna da tabela, a experiência do usuário não iria ficar tão agradável, peço desculpas desde já. Em breve corrigirei.
+**Para usar o filtro, pesquise por um nome do pokémon EX: "Charizard", caso queira pesquisar somente uma parte do nome, acrescente um " * " no fim da palavra EX: "Char*" é preciso fazer isso pois a [API Oficial](https://docs.pokemontcg.io/) do Pokémon, não possui um endpoint específico para uma pesquisa incompleta.
 ![Alerta de deck criado](https://i.imgur.com/hgE9JjK.png)
 Depois que escolher as melhores cartas e clicar em salvar deck, o alerta confirmando a criação será exibido, e te levará para a página onde estão todos os seus decks.
 ![Seus decks](https://i.imgur.com/3re0M84.png)
