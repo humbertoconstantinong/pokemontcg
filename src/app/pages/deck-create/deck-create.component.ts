@@ -79,7 +79,7 @@ export class DeckCreateComponent implements OnInit {
         const cardWithSameName = this.Cards.filter(
           (c) => c.name === card.name 
         ); 
-        
+
         //Comparando com a lista de Cards, para validar e não permitir passar de 4 cards com o mesmo nome.
         if (cardWithSameName.length <= 3) {
           console.log(`length ${cardWithSameName.length}`)
@@ -121,7 +121,7 @@ export class DeckCreateComponent implements OnInit {
     }else{
       Swal.fire({
         icon: "error",
-        title: "O Deck deve ter um nome e ter entre 24 e 60 cartas!",
+        title: "O Deck deve possuir um nome e ter de 24 á 60 cartas!",
       });
     }
   }
