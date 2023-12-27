@@ -12,12 +12,15 @@ import { GlobalContextService } from 'src/app/services/global-context.service';
 export class DeckDetailComponent {
   constructor(public globalContext: GlobalContextService, private router: Router, private cardService: CardListService){}
   decks: any = [];
-  contador = 0;
+  exibeMsg = false;
   
   ngOnInit(){
     this.cardService.getDecks().subscribe((res)=>{
       for(let deck of res){
         this.decks.push(deck);
+        if(res.length === 1){
+          this.exibeMsg = true;
+        }
       }
     })
   }

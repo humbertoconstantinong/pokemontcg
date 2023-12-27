@@ -3,6 +3,10 @@
     <source src="../../../assets/pfhd.mp4" type="video/mp4">
 </video>
 <button (click)="goHome()" class="m-4" style="background-color: #fcea69; color: black;" mat-raised-button>Voltar ao menu principal</button>
+<div *ngIf="exibeMsg" class="flex space-x-4 justify-center p-8">
+    <span class="font-extrabold text-3xl text-center" style="color: #ffcb08;" >Você ainda não adicionou nenhum deck</span>
+
+</div>
 <app-one-deck *ngFor="let deck of decks" [deck]="deck" [cards]="deck.cards" [nameDeck]="deck.name"></app-one-deck>
 
 

@@ -29,6 +29,7 @@ export class DeckCreateComponent implements OnInit {
     this.myVideo.nativeElement.play();
   }
   deckCards: Array<any> = [];
+  paginatorOFF: boolean = true;
   uniqueCard: Array<any> = [];
   nameDeck = '';
   userInput = '';
@@ -37,13 +38,17 @@ export class DeckCreateComponent implements OnInit {
   Cards: Array<any> = [];
   contadorCards = 0;
   contadorPage = 1;
+  exibeFiltro = true;
   exibe_title = true;
   ngOnInit(): void{
+    this.paginatorOFF = false;
+    this.exibeFiltro = false;
     this.cardService.getAll().subscribe((res)=>{
       this.spinner = false;
       this.deckCards = res.data;
       this.exibe_title = false;
       this.pauseVideo();
+      this.exibeFiltro = true;
     })
   }
 
@@ -52,9 +57,11 @@ export class DeckCreateComponent implements OnInit {
   }
 
   getCardByName(){
+    this.exibeFiltro = true;
     this.spinner = true;
     this.playVideo();
     if(this.userInput != "" && this.userInput != undefined){
+      this.paginatorOFF = true;
       this.cardService.getCardByName(this.userInput).subscribe((res)=>{
         this.pauseVideo();
         this.spinner = false;
@@ -62,6 +69,7 @@ export class DeckCreateComponent implements OnInit {
       })
     }else{
       this.cardService.getAll().subscribe((res)=>{
+        this.paginatorOFF = false;
         this.spinner = false;
         this.deckCards = res.data;
         this.exibe_title = false;
@@ -140,15 +148,19 @@ export class DeckCreateComponent implements OnInit {
     })
   }
   onBeforePage() {
-    this.playVideo();
-    this.spinner = true;
-    this.contadorPage--
-    this.cardService.getCardByPage(this.contadorPage).subscribe((res)=>{
-      this.spinner = false;
-      this.deckCards = (res.data);
-      // this.dataSource = new MatTableDataSource(res.data);
-      this.pauseVideo();
-    })
+    if(this.contadorPage === 1){
+
+    }else{
+      this.playVideo();
+      this.spinner = true;
+      this.contadorPage--
+      this.cardService.getCardByPage(this.contadorPage).subscribe((res)=>{
+        this.spinner = false;
+        this.deckCards = (res.data);
+        // this.dataSource = new MatTableDataSource(res.data);
+        this.pauseVideo();
+      })
+    }
   }
 
   // filterCards() {
