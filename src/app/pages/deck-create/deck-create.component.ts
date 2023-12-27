@@ -40,20 +40,12 @@ export class DeckCreateComponent implements OnInit {
   exibe_title = true;
   ngOnInit(): void{
     this.cardService.getAll().subscribe((res)=>{
-      console.log(res)
       this.spinner = false;
       this.deckCards = res.data;
       this.exibe_title = false;
-      // this.dataSource = new MatTableDataSource(res.data);
       this.pauseVideo();
     })
   }
-
-
-  // applyFilter(event: Event) {
-  //   const filterValue = (event.target as HTMLInputElement).value;
-  //   this.dataSource.filter = filterValue.trim().toLowerCase();
-  // }
 
   validateDeckName(){
     return (this.nameDeck != "");
@@ -62,11 +54,20 @@ export class DeckCreateComponent implements OnInit {
   getCardByName(){
     this.spinner = true;
     this.playVideo();
-    this.cardService.getCardByName(this.userInput).subscribe((res)=>{
-      this.pauseVideo();
-      this.spinner = false;
-      this.deckCards = res.data;
-    })
+    if(this.userInput != "" && this.userInput != undefined){
+      this.cardService.getCardByName(this.userInput).subscribe((res)=>{
+        this.pauseVideo();
+        this.spinner = false;
+        this.deckCards = res.data;
+      })
+    }else{
+      this.cardService.getAll().subscribe((res)=>{
+        this.spinner = false;
+        this.deckCards = res.data;
+        this.exibe_title = false;
+        this.pauseVideo();
+      })
+    }
   }
 
   addCard(card: any){
@@ -78,6 +79,7 @@ export class DeckCreateComponent implements OnInit {
         const cardWithSameName = this.Cards.filter(
           (c) => c.name === card.name 
         ); 
+        
         //Comparando com a lista de Cards, para validar e não permitir passar de 4 cards com o mesmo nome.
         if (cardWithSameName.length <= 3) {
           console.log(`length ${cardWithSameName.length}`)
