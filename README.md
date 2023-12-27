@@ -34,4 +34,9 @@ Ao acessar a página inicial ``localhost:4200/`` você vai se deparar com a segu
 
 Depois que escolher as melhores cartas e clicar em salvar deck, o alerta confirmando a criação será exibido, e te levará para a página onde estão todos os seus decks.
 
-![Seus decks](https://i.imgur.com/3re0M84.png)
+![Seus decks](https://i.imgur.com/xjYUJh0.png)
+
+
+Clique em algum deck para vizualizar seus detalhes 
+![Detalhes do deck](https://i.imgur.com/tHp9u4t.png)
+
