@@ -6,7 +6,6 @@ import { Route, Router } from '@angular/router';
 import { CardComponent } from 'src/app/components/shared/card/card.component';
 import { Deck } from 'src/app/models/deck';
 import { CardListService } from 'src/app/services/card-list.service';
-import { GlobalContextService } from 'src/app/services/global-context.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,7 +16,7 @@ import Swal from 'sweetalert2';
 
 export class DeckCreateComponent implements OnInit {
 
-  constructor(private cardService: CardListService,private router: Router, private dialog: MatDialog, private globalContext: GlobalContextService){}
+  constructor(private cardService: CardListService,private router: Router, private dialog: MatDialog){}
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
   @ViewChild('myVideo') myVideo: any;
