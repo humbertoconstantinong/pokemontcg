@@ -28,7 +28,7 @@ Ao acessar a página inicial ``localhost:4200/`` você vai se deparar com a segu
 4 - Se necessário, utilize o filtro para pesquisar o nome de alguma carta (PRESSIONE ENTER PARA EFETUAR A PESQUISA).
 5 - Não é possível adicionar mais de 4 cartas com o mesmo nome, seguindo as regras do jogo.
 
-**Para usar o filtro, pesquise por um nome do pokémon EX: "Charizard", caso queira pesquisar somente uma parte do nome, acrescente um " * " no fim da palavra EX: "Char*" é preciso fazer isso pois a [API Oficial](https://docs.pokemontcg.io/) do Pokémon, não possui um endpoint específico para uma pesquisa incompleta.
+**Para usar o filtro, pesquise por um nome do pokémon EX: "Charizard", caso queira pesquisar somente uma parte do nome, acrescente um " * " no fim da palavra EX: "Char * " é preciso fazer isso pois a [API Oficial](https://docs.pokemontcg.io/) do Pokémon, não possui um endpoint específico para uma pesquisa incompleta.
 
 ![Alerta de deck criado](https://i.imgur.com/hgE9JjK.png)
 
