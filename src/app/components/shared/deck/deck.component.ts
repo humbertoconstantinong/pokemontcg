@@ -38,6 +38,7 @@ export class DeckComponent implements OnInit {
           confirmButtonColor: '#004a94'
         }).then((result)=>{
           if(result.isConfirmed){
+            this.dialogRef.close();
             this.route.navigate(['']);
           }
         });
