@@ -20,6 +20,11 @@ export class DeckCreateComponent implements OnInit {
   constructor(private cardService: CardListService,private router: Router, private dialog: MatDialog, private globalContext: GlobalContextService){}
 
   @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+  @ViewChild('myVideo') myVideo: any;
+
+  pauseVideo() {
+    this.myVideo.nativeElement.pause();
+  }
 
   nameDeck = '';
   spinner = true;
@@ -34,6 +39,7 @@ export class DeckCreateComponent implements OnInit {
       console.log(res)
       this.spinner = false;
       this.dataSource = new MatTableDataSource(res.data);
+      this.pauseVideo();
     })
   }
 
