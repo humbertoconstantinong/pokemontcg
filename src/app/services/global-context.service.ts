@@ -13,7 +13,6 @@ export class GlobalContextService {
   // returnDecks(){
   //   let contador = 0;
   //   let decks = for(let deck of this.Decks){
-  //     console.log(`Decks details ${decks[contador]}`)
   //   }
   // }
   returnDecks(): any {

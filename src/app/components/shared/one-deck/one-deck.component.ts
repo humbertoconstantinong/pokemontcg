@@ -16,7 +16,6 @@ export class OneDeckComponent {
   @Input() deck: Array<any> = [];
   miniCards: Array<any> = [];
   returnCard(){
-    console.log(this.cards)
     for(let card of this.cards){
       this.miniCards.push(card.images.small)
     }
@@ -24,7 +23,6 @@ export class OneDeckComponent {
   }
 
   viewFullDeck(){
-    console.log(`clicou`)
     const dialogRef = this.dialog.open(DeckComponent, {
       data: {deck: this.deck},
       width: '500'

@@ -82,10 +82,8 @@ export class DeckCreateComponent implements OnInit {
 
         //Comparando com a lista de Cards, para validar e não permitir passar de 4 cards com o mesmo nome.
         if (cardWithSameName.length <= 3) {
-          console.log(`length ${cardWithSameName.length}`)
           this.Cards.push(card);
           this.contadorCards = this.contadorCards + 1;
-          console.log(this.contadorCards)
         } else{
           Swal.fire({
             icon: "error",
@@ -107,7 +105,6 @@ export class DeckCreateComponent implements OnInit {
         }
         // this.globalContext.Decks.push(handlerDeck); CRIANDO EM VARIÁVEL LOCAL
         this.cardService.createDeck(handlerDeck).subscribe(); // Criando na API FAKE
-        console.log(`DECK CRIADO -> ${this.globalContext.Decks}`)
         Swal.fire({
           icon: "success",
           title: "Deck criado com sucesso!",

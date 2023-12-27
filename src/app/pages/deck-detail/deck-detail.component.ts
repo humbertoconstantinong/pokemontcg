@@ -18,7 +18,6 @@ export class DeckDetailComponent {
     this.cardService.getDecks().subscribe((res)=>{
       for(let deck of res){
         this.decks.push(deck);
-        console.log(this.decks);
       }
     })
   }

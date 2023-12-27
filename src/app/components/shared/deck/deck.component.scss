@@ -2,3 +2,11 @@
     width: 40vw;
     height: 80vh;
 }
+.infos{
+    background-color:#ffcb08;
+}
+.no-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    overflow: auto;
+  }
