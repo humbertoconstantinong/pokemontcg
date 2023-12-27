@@ -25,6 +25,9 @@ export class DeckCreateComponent implements OnInit {
   pauseVideo() {
     this.myVideo.nativeElement.pause();
   }
+  playVideo() {
+    this.myVideo.nativeElement.play();
+  }
 
   nameDeck = '';
   spinner = true;
@@ -113,19 +116,23 @@ export class DeckCreateComponent implements OnInit {
   }
 
   onNextPage() {
+    this.playVideo();
     this.spinner = true;
     this.contadorPage++
     this.cardService.getCardByPage(this.contadorPage).subscribe((res)=>{
       this.spinner = false;
       this.dataSource = new MatTableDataSource(res.data);
+      this.pauseVideo();
     })
   }
   onBeforePage() {
+    this.playVideo();
     this.spinner = true;
     this.contadorPage--
     this.cardService.getCardByPage(this.contadorPage).subscribe((res)=>{
       this.spinner = false;
       this.dataSource = new MatTableDataSource(res.data);
+      this.pauseVideo();
     })
   }
 }
