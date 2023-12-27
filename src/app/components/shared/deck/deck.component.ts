@@ -45,7 +45,7 @@ export class DeckComponent implements OnInit {
       if(item.supertype === "Pokémon"){
         this.pokemons++;
       }
-      if(item.supertype === "Treinador"){
+      if(item.supertype === "Trainer"){
         this.coach++;
       }
     }
