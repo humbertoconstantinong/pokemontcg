@@ -122,6 +122,7 @@ export class DeckCreateComponent implements OnInit {
       Swal.fire({
         icon: "error",
         title: "O Deck deve possuir um nome e ter de 24 á 60 cartas!",
+        confirmButtonColor: '#004a94'
       });
     }
   }

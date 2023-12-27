@@ -13,7 +13,7 @@
           </div>
       </div>
       </div>
-      <div  *ngIf="!spinner" style="height: 350px; position: fixed; right: 50px;" class="info-deck bg-white p-8 shadow-md rounded-md">
+      <div  *ngIf="!spinner && contadorPage >= 1" style="height: 350px; position: fixed; right: 50px;" class="info-deck bg-white p-8 shadow-md rounded-md">
         <mat-form-field>
           <mat-label>Nome do Deck</mat-label>
           <input  [(ngModel)]="nameDeck"  matInput placeholder="Nome do Deck" #input>
