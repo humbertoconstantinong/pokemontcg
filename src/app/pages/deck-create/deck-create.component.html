@@ -1,36 +1,17 @@
 <video id="video-background"  #myVideo autoplay muted loop playsinline>
   <source src="../../../assets/pfhd.mp4" type="video/mp4">
 </video>
+
 <button (click)="goHome()" class="m-4" style="background-color: #fcea69; color: black;" mat-raised-button>Voltar ao menu principal</button>
   <div class="flex items-center justify-center  ">
     <div class="flex space-x-4 justify-center p-8">
+      <span class="font-extrabold text-3xl text-center" style="color: #ffcb08;" *ngIf="spinner && exibe_title">Carregando</span>
       <div class="scroll">
-        <span class="font-extrabold text-3xl" style="color: #ffcb08;" *ngIf="spinner">Carregando cartas</span>
-        <table  *ngIf="!spinner" mat-table [dataSource]="dataSource" class="mat-elevation-z8 mat-table">
-        
-          <ng-container  matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td (click)="addCard(element)" mat-cell *matCellDef="let element"> <img class="card" [src]="element.images?.small" alt=""> </td>
-          </ng-container>
-          <ng-container  matColumnDef="position2">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td (click)="addCard(element)" mat-cell *matCellDef="let element"> <img class="card" [src]="element.images?.small" alt=""> </td>
-          </ng-container>
-          <ng-container  matColumnDef="position3">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td (click)="addCard(element)" mat-cell *matCellDef="let element"> <img class="card" [src]="element.images?.small" alt=""> </td>
-          </ng-container>
-          <ng-container  matColumnDef="position4">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td (click)="addCard(element)" mat-cell *matCellDef="let element"> <img class="card" [src]="element.images?.small" alt=""> </td>
-          </ng-container>
-          
-        
-        
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        
-        </table>
+        <div class="flex flex-wrap -mx-4 container p-4">
+          <div  *ngFor="let item of deckCards" class="w-full md:w-1/2 lg:w-1/5 px-4 mb-4">
+            <img *ngIf="!spinner" (click)="addCard(item)" [src]="item.images.small" class="w-36 h-auto">
+          </div>
+      </div>
       </div>
       <div  *ngIf="!spinner" style="height: 350px; position: fixed; right: 50px;" class="info-deck bg-white p-8 shadow-md rounded-md">
         <mat-form-field>
@@ -39,11 +20,11 @@
         </mat-form-field><br>
         <mat-form-field>
           <mat-label>Filtrar  Carta</mat-label>
-          <input  matInput (keyup)="applyFilter($event)" placeholder="Filtrar" #input>
+          <input (keyup.enter)="getCardByName()" [(ngModel)]="userInput" matInput placeholder="Presisone ENTER" #input>
         </mat-form-field> 
         <h3 class="text-center">Cartas Adicionadas: {{contadorCards}}</h3>
         <div class="flex w-full justify-around">
-          <button (click)="onBeforePage()" mat-mini-fab style="background-color: #004a94; color: white;">
+          <button [disabled]="contadorPage === 1" (click)="onBeforePage()" mat-mini-fab style="background-color: #004a94; color: white;">
             <mat-icon>navigate_before</mat-icon>
           </button>
           <button class="mt-14" (click)="createDeck()" style="background-color: #004a94; color: white;" mat-raised-button>Salvar Deck <mat-icon aria-hidden="false" fontIcon="add_circle"></mat-icon></button>

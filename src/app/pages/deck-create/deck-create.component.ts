@@ -28,32 +28,45 @@ export class DeckCreateComponent implements OnInit {
   playVideo() {
     this.myVideo.nativeElement.play();
   }
-
+  deckCards: Array<any> = [];
+  uniqueCard: Array<any> = [];
   nameDeck = '';
+  userInput = '';
   spinner = true;
-  displayedColumns: string[] = ['position','position2','position3','position4'];
-  dataSource = new MatTableDataSource(ELEMENT_DATA);
   Decks: Array<Deck> = [];
   Cards: Array<any> = [];
   contadorCards = 0;
   contadorPage = 1;
+  exibe_title = true;
   ngOnInit(): void{
     this.cardService.getAll().subscribe((res)=>{
       console.log(res)
       this.spinner = false;
-      this.dataSource = new MatTableDataSource(res.data);
+      this.deckCards = res.data;
+      this.exibe_title = false;
+      // this.dataSource = new MatTableDataSource(res.data);
       this.pauseVideo();
     })
   }
 
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+  // applyFilter(event: Event) {
+  //   const filterValue = (event.target as HTMLInputElement).value;
+  //   this.dataSource.filter = filterValue.trim().toLowerCase();
+  // }
 
   validateDeckName(){
     return (this.nameDeck != "");
+  }
+
+  getCardByName(){
+    this.spinner = true;
+    this.playVideo();
+    this.cardService.getCardByName(this.userInput).subscribe((res)=>{
+      this.pauseVideo();
+      this.spinner = false;
+      this.deckCards = res.data;
+    })
   }
 
   addCard(card: any){
@@ -121,7 +134,8 @@ export class DeckCreateComponent implements OnInit {
     this.contadorPage++
     this.cardService.getCardByPage(this.contadorPage).subscribe((res)=>{
       this.spinner = false;
-      this.dataSource = new MatTableDataSource(res.data);
+      this.deckCards = (res.data);
+      // this.dataSource = new MatTableDataSource(res.data);
       this.pauseVideo();
     })
   }
@@ -131,28 +145,19 @@ export class DeckCreateComponent implements OnInit {
     this.contadorPage--
     this.cardService.getCardByPage(this.contadorPage).subscribe((res)=>{
       this.spinner = false;
-      this.dataSource = new MatTableDataSource(res.data);
+      this.deckCards = (res.data);
+      // this.dataSource = new MatTableDataSource(res.data);
       this.pauseVideo();
     })
   }
+
+  // filterCards() {
+  //   if(this.userInput != ""){
+  //     const objetosFiltrados = this.deckCards.filter((objeto: { name: string; }) =>
+  //     objeto.name.toLowerCase().includes(this.userInput.toLowerCase()));
+  //     this.deckCards = objetosFiltrados;
+  //   }
+  // }
 }
 
-export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
-}
 
-const ELEMENT_DATA: any[] = [
-  {position: 1, symbol: ''},
-  {position: 2,  symbol: ''},
-  {position: 3,  symbol: ''},
-  {position: 4,  symbol: ''},
-  {position: 5,  symbol: ''},
-  {position: 6,  symbol: ''},
-  {position: 7,  symbol: ''},
-  {position: 8, symbol: ''},
-  {position: 9,  symbol: ''},
-  {position: 10, symbol: ''},
-];
