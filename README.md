@@ -44,3 +44,6 @@ Clique em algum deck para vizualizar seus detalhes
 Scroll para baixo se quiser ver todas as cartas e apagar o deck  
 ![Apagar deck](https://i.imgur.com/6vMa3Dz.png)  
 
+
+Vídeo demostrando o funcionamento - https://www.youtube.com/watch?v=LkWZzyc7VpA
+
