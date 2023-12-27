@@ -37,6 +37,10 @@ Depois que escolher as melhores cartas e clicar em salvar deck, o alerta confirm
 ![Seus decks](https://i.imgur.com/xjYUJh0.png)
 
 
-Clique em algum deck para vizualizar seus detalhes 
+Clique em algum deck para vizualizar seus detalhes   
 ![Detalhes do deck](https://i.imgur.com/tHp9u4t.png)
+
+
+Scroll para baixo se quiser ver todas as cartas e apagar o deck  
+![Apagar deck](https://i.imgur.com/6vMa3Dz.png)  
 
