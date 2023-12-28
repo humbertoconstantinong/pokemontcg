@@ -2,6 +2,7 @@
 
 Olá, bem vindo ao repositório deste projeto que simula uma parte de um jogo de cartas "TCG" - "**trading card games**" baseado no animê Pokémon.
 
+# Tecnologias utilizadas: Framework Angular 16, Angular Material(UI), Tailwindcss(CSS-inline) e Sweet Alerts(Alerts)
 
 # Requisitos para compilar o projeto
 O projeto atualizado se encontra na branch **main**, voce pode realizar o download através do
